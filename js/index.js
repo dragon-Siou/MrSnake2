@@ -5,6 +5,7 @@ let flipbook;
 const { createApp } = Vue
 let pageVue;
 let animationVue;
+let pageNum;
 
 $(function(){
 
@@ -153,102 +154,218 @@ function loadApp(){
     
     flipbook = $('.magazine');
 
-    let pageNum = 201;
+    pageNum = 201;
 
-    // Create the flipbook
+    
+
+	//載入手機板
+	if(isMobile()){
+		loadMobile()
+	}
+	else{
+		loadPC()
+	}
+
+	
+}
+
+
+
+function loadPC(){
 
 	let heightNum = 1.39
 
 	let h = 912
 
+	// Create the flipbook
 	flipbook.turn({
 			
-			// Magazine width
+		// Magazine width
 
-			width: h*heightNum,
+		width: h*heightNum,
 
-			// Magazine height
+		// Magazine height
 
-			height: h,
+		height: h,
 
-			// Duration in millisecond
+		// Duration in millisecond
 
-			duration: 1000,
+		duration: 1000,
 
-			// Hardware acceleration
+		// Hardware acceleration
 
-			acceleration:  !isChrome(),
+		acceleration:  !isChrome(),
 
-			// Enables gradients
+		// Enables gradients
 
-			gradients: true,
-			
-			// Auto center this flipbook
+		gradients: true,
+		
+		// Auto center this flipbook
 
-			autoCenter: true,
+		autoCenter: true,
 
-			// Elevation from the edge of the flipbook when turning a page
+		// Elevation from the edge of the flipbook when turning a page
 
-			elevation: 50,
+		elevation: 50,
 
-			// The number of pages
+		// The number of pages
 
-			pages: pageNum,
+		pages: pageNum,
 
-			direction: "rtl",
+		direction: "rtl",
 
-			// Events
+		// Events
 
-			when: {
-				turning: function(event, page, view) {
-					
-					var book = $(this),
-					currentPage = book.turn('page'),
-					pages = book.turn('pages');
-			
-					// Update the current URI
+		when: {
+			turning: function(event, page, view) {
+				
+				var book = $(this),
+				currentPage = book.turn('page'),
+				pages = book.turn('pages');
+		
+				// Update the current URI
 
-					Hash.go('page/' + page).update();
+				Hash.go('page/' + page).update();
 
-					// Show and hide navigation buttons
+				// Show and hide navigation buttons
 
-					disableControls(page);
-					
+				disableControls(page);
+				
 
-					$('.thumbnails .page-'+currentPage).
-						parent().
-						removeClass('current');
+				$('.thumbnails .page-'+currentPage).
+					parent().
+					removeClass('current');
 
-					$('.thumbnails .page-'+page).
-						parent().
-						addClass('current');
+				$('.thumbnails .page-'+page).
+					parent().
+					addClass('current');
 
 
 
-				},
+			},
 
-				turned: function(event, page, view) {
+			turned: function(event, page, view) {
 
-					disableControls(page);
+				disableControls(page);
 
-					$(this).turn('center');
+				$(this).turn('center');
 
-					if (page==1) { 
-						$(this).turn('peel', 'br');
-					}
-
-				},
-
-				missing: function (event, pages) {
-
-					// Add pages that aren't in the magazine
-
-					for (var i = 0; i < pages.length; i++)
-						addPage(pages[i], $(this));
-
+				if (page==1) { 
+					$(this).turn('peel', 'br');
 				}
+
+			},
+
+			missing: function (event, pages) {
+
+				// Add pages that aren't in the magazine
+
+				for (var i = 0; i < pages.length; i++)
+					addPage(pages[i], $(this));
+
 			}
+		}
 
 	});
 }
+
+function loadMobile(){
+	let heightNum = 0.69
+
+	let h = 720
+
+	// Create the flipbook
+	flipbook.turn({
+			
+		// Magazine width
+
+		width: h*heightNum,
+
+		// Magazine height
+
+		height: h,
+
+		// Duration in millisecond
+
+		duration: 1000,
+
+		// Hardware acceleration
+
+		acceleration:  !isChrome(),
+
+		// Enables gradients
+
+		gradients: true,
+		
+		// Auto center this flipbook
+
+		autoCenter: true,
+
+		// Elevation from the edge of the flipbook when turning a page
+
+		elevation: 50,
+
+		// The number of pages
+
+		pages: pageNum,
+
+		direction: "rtl",
+
+		display: "single",
+
+		// Events
+
+		when: {
+			turning: function(event, page, view) {
+				
+				var book = $(this),
+				currentPage = book.turn('page'),
+				pages = book.turn('pages');
+		
+				// Update the current URI
+
+				Hash.go('page/' + page).update();
+
+				// Show and hide navigation buttons
+
+				disableControls(page);
+				
+
+				$('.thumbnails .page-'+currentPage).
+					parent().
+					removeClass('current');
+
+				$('.thumbnails .page-'+page).
+					parent().
+					addClass('current');
+
+
+
+			},
+
+			turned: function(event, page, view) {
+
+				disableControls(page);
+
+				$(this).turn('center');
+
+				if (page==1) { 
+					$(this).turn('peel', 'br');
+				}
+
+			},
+
+			missing: function (event, pages) {
+
+				// Add pages that aren't in the magazine
+
+				for (var i = 0; i < pages.length; i++)
+					addPage(pages[i], $(this));
+
+			}
+		}
+
+	});
+}
+
 

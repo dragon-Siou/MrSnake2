@@ -14,7 +14,7 @@ body{
 .page-box{
     position: absolute;
     left: 50%;
-    top:9px;
+    top:1%;
     z-index: 500;
     transform: translate(-50%, 0);
 }
