@@ -5,10 +5,10 @@
 let pagePath = 'pages/';
 
 function getPageFileExtension(page){
-	
+	/*
 	if(page==1){
 		return ".gif";
-	}
+	}*/
 	return ".png";
 }
 
