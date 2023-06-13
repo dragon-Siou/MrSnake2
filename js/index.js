@@ -280,7 +280,7 @@ function loadPC(){
 function loadMobile(){
 	let heightNum = 0.69
 
-	let h = 716
+	let h = 700
 
 	// Create the flipbook
 	flipbook.turn({

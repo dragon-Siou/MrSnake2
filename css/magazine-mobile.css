@@ -5,21 +5,21 @@
 	position:absolute;
 	top:50%;
 	left:50%;
-	width:494px;
-	height:716px;
+	width:483px;
+	height:700px;
 	margin:auto;
 }
 
 .magazine{
-	width:494px;
-	height:716px;
-	left:-247px;
-	top:-328px;
+	width:483px;
+	height:700px;
+	left:-242px;
+	top:-320px;
 }
 
 .page{
-	width:494px;
-	height:716px;
+	width:483px;
+	height:700px;
 	background-color:white;
 	background-repeat:no-repeat;
 	background-size:100% 100%;
