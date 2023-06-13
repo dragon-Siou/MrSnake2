@@ -5,29 +5,9 @@ body{
 	padding:0;
 }
 
-.magazine-viewport .turn-container{
-	position:absolute;
-	top:50%;
-	left:50%;
-	width:1268px;
-	height:912px;
-	margin:auto;
-}
 
-.magazine-viewport .magazine{
-	width:1268px;
-	height:912px;
-	left:-634px;
-	top:-426px;
-}
 
-.magazine-viewport .page{
-	width:634px;
-	height:912px;
-	background-color:white;
-	background-repeat:no-repeat;
-	background-size:100% 100%;
-}
+
 
 .magazine-viewport .zoomer .region{
 	display:none;

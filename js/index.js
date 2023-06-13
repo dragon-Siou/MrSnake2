@@ -156,15 +156,23 @@ function loadApp(){
 
     pageNum = 201;
 
-    
+	let isMobileBool = isMobile()
+
+    yepnope({
+		test : isMobileBool,
+		yep : 'css/magazine-mobile.css',
+		nope : 'css/magazine-pc.css'
+	});
 
 	//載入手機板
-	if(isMobile()){
+	if(isMobileBool){
 		loadMobile()
 	}
 	else{
 		loadPC()
 	}
+
+
 
 	
 }
@@ -272,7 +280,7 @@ function loadPC(){
 function loadMobile(){
 	let heightNum = 0.69
 
-	let h = 720
+	let h = 730
 
 	// Create the flipbook
 	flipbook.turn({
