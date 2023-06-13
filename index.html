@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/magazine.css">
+
+        <link rel="icon" href="images/snake.jpg" type="image/x-icon" />
+        <script type="text/javascript" src="./turnjs4/extras/modernizr.2.5.3.min.js"></script>
+        <script type="text/javascript" src="./turnjs4/extras/jquery.min.1.7.js"></script>
+        <script type="text/javascript" src="./turnjs4/lib/hash.js"></script>
+        <script type="text/javascript" src="./turnjs4/lib/turn.js"></script>
+        <script type="text/javascript" src="./turnjs4/lib/zoom.min.js"></script>    
+        
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+        <script type="text/javascript" src="./js/magazine.js"></script>
+        <script type="text/javascript" src="./js/index.js"></script>
+
+
+    </head>
+    <body >
+        <nav class="navbar-top navbar navbar-expand-lg navbar-light py-0 bg-light">
+            
+            <a class="navbar-brand" href="#">
+                <img src="./images/snake.jpg" width="50" height="50" alt="">
+              </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+
+                <!--<div id ="pageInput" class="form-inline my-2 my-lg-0 collapse navbar-collapse justify-content-center">
+                <div id ="pageInput" class="form-inline nav navbar-nav  ">
+                    <input  class="form-control mr-sm-2 search-input-width input-text-center" v-on:keyup.enter="turn()" v-model="page" :value="page" >
+                    <span class="navbar-text">
+                        /201 &ensp;
+                    </span>
+                    <button class="btn btn-outline-success my-2 my-sm-0" @click="turn" type="button">跳頁</button>
+                    &ensp; &ensp; &ensp;
+                </div>-->
+                <span class="navbar-text">
+                    開啟動畫 &ensp;
+                </span>
+                <div id ="animationInput" class="form-check form-switch ">
+                    <input class="form-check-input" type="checkbox" v-model="useAnimation" id="flexSwitchCheckChecked" checked>
+                    &ensp;  &ensp;  &ensp;
+                </div>
+
+                
+
+                
+            </div>
+        </nav>
+        
+        <div id="canvas">
+            <div class="magazine-viewport">
+                <div class="turn-container">
+
+                    <div class="magazine">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id ="pageInput" class="form-inline page-box">
+            <input  class="form-control mr-sm-2 search-input-width input-text-center" v-on:keyup.enter="turn()" v-model="page" :value="page" >
+            <span class="navbar-text">
+                / &ensp;201 &ensp;
+            </span>
+            <button class="btn btn-outline-success my-2 my-sm-0" @click="turn" type="button">跳頁</button>
+            &ensp; &ensp; &ensp;
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

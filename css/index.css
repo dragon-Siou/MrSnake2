@@ -1,0 +1,29 @@
+body{
+    overflow-y: hidden;
+    overflow-x: hidden; 
+}
+
+.search-input-width{
+    width:60px !important;
+}
+
+.input-text-center{
+    text-align: center;
+}
+
+.page-box{
+    position: absolute;
+    left: 50%;
+    top:9px;
+    z-index: 500;
+    transform: translate(-50%, 0);
+}
+
+.navbar-top{
+    z-index: 490;
+}
+
+
+
+
+
