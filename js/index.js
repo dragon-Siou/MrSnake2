@@ -87,6 +87,25 @@ $(function(){
 		}
 	})
 
+	// URIs - Format #/page/1 
+
+	Hash.on('^page\/([0-9]*)$', {
+		yep: function(path, parts) {
+			var page = parts[1];
+
+			if (page!==undefined) {
+				if ($('.magazine').turn('is'))
+					$('.magazine').turn('page', page);
+			}
+
+		},
+		nop: function(path) {
+
+			if ($('.magazine').turn('is'))
+				$('.magazine').turn('page', 1);
+		}
+	});
+
 })
 
 
